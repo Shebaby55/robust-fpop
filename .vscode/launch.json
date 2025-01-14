@@ -23,7 +23,7 @@
             "program": "/home/sheshaoya/.conda/envs/py39/bin/python",
             "processId": "${command:pickProcess}",
             "MIMode": "gdb",
-            "preLaunchTask": "make clean && make",
+            // "preLaunchTask": "make clean && make",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -40,9 +40,6 @@
                 "exceptions": false,
                 "moduleLoad": false
             },
-            "additionalSOLibSearchPath": "${workspaceFolder}/build/liball.so", //动态库所在位置
-
-            
         }
     ],
 }

@@ -3,7 +3,6 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**",
                 "/usr/share/R/include",
                 "/usr/include",
                 "/usr/local/include"
