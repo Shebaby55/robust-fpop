@@ -1,0 +1,43 @@
+# 使用基于 Google 的代码风格
+BasedOnStyle: Google
+
+# 缩进使用 4 个空格
+IndentWidth: 4
+
+# 使用空格而不是制表符
+UseTab: Never
+
+# 每行的最大字符数
+ColumnLimit: 120
+
+# 强制在控制语句（如 if、for、while）后加上空格
+SpaceBeforeParens: ControlStatements
+
+# 强制在模板参数列表的尖括号之间加上空格
+SpacesInAngles: false
+
+# 自定义大括号换行规则
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass: true
+  AfterControlStatement: false
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterStruct: true
+  AfterUnion: true
+  BeforeCatch: true
+  BeforeElse: false
+  IndentBraces: false
+
+ConstructorInitializerIndentWidth: 4
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+
+# 确保 include 语句之间没有空行
+IncludeBlocks: Merge
+
+AllowShortFunctionsOnASingleLine: Empty
+
+AccessModifierOffset: -4
+
+AlignConsecutiveMacros: true

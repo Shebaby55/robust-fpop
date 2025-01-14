@@ -1,0 +1,7 @@
+*.pdf
+*.out
+test
+output
+.vscode
+build
+src1
