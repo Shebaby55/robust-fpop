@@ -36,9 +36,7 @@ void rob_fpop_RtoC(const double *profil, const int *nbi, const double *lambda_, 
     int minPosition = -10;
     double minCurrent = 100, meanCurrent = 0.;
 
-    auto iniFunc = std::make_unique<CFunctPart>(min, max);
-    auto myList = std::make_unique<MyList>();
-
+    auto myList = std::make_unique<MyList>(std::make_unique<CFunctPart>(min, max));
     myList->add(profil[0], lthreshold, rthreshold, lslope, rslope);
     myList->getMin(&minCurrent, &minPosition, &meanCurrent);
     cout_n[0] = minCurrent + lambda;

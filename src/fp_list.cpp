@@ -13,6 +13,7 @@ void MyList::getMin(double *min_, int *origine_, double *mean_)
         }
     }
 }
+
 void MyList::add(double X_, double lthrs_, double rthrs_, double lslope, double rslope)
 {
     double lBorder = X_ - lthrs_;
@@ -67,9 +68,10 @@ void MyList::add(double X_, double lthrs_, double rthrs_, double lslope, double 
         CurFunc->rBorder = rBorder;
     }
     // add right //
-    while (++it != Listes.end()) {
+    while (it != Listes.end()) {
         CurFunc = it->get();
         CurFunc->addRight(ra0, ra1);
+        it++;
     }
 }
 
@@ -86,8 +88,8 @@ void MyList::compare(double cost_, int origine_)
         if (CurFunc->racStatus == 1) {
             // splitRight if necessary //
             if (CurFunc->rac1 > CurFunc->lBorder) {
-                auto cFunc = std::make_unique<CFunctPart>(CurFunc->a0, CurFunc->a1, CurFunc->a2, CurFunc->rac1,
-                                                    CurFunc->rBorder, CurFunc->rac1, CurFunc->rac2, CurFunc->origine);
+                auto cFunc = std::make_unique<CFunctPart>(CurFunc->a0, CurFunc->a1, CurFunc->a2, 
+                    CurFunc->rac1,CurFunc->rBorder, CurFunc->rac1, CurFunc->rac2, CurFunc->origine);
                 it = Listes.insert(++it, std::move(cFunc));
                 CurFunc->reset(cost_, origine_);
                 CurFunc->rBorder = it->get()->lBorder;

@@ -53,7 +53,6 @@ bool CFunctPart::addCenter(double rBorder_, double a0_, double a1_, double a2_)
     } else {
         return false;
     }
-        
 }
 
 void CFunctPart::addRight(double a0_, double a1_)
@@ -151,7 +150,7 @@ void CFunctPart::updateRoots(double a0_)
     if ((rac1 >= rBorder) | (rac2 <= lBorder))
         racStatus = -1;  // full replace
     else {
-        if ((rac1 == lBorder) & (rac2 == rBorder))  // nothing to do
+        if ((rac1 == lBorder) && (rac2 == rBorder))  // nothing to do
         {
             rac1 = 0.;
             rac2 = 0.;

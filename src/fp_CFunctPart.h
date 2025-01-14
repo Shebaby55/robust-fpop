@@ -19,7 +19,6 @@
 
 #ifndef _CFunctPartH
 #define _CFunctPartH
-#include <float.h>
 #include <math.h>
 #include <stdlib.h>
 

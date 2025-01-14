@@ -1,7 +1,12 @@
 *.pdf
 *.out
-test
-output
-.vscode
-build
-src1
+*.png
+
+/output 
+/.vscode/* 
+/build/* 
+src1/
+
+*/__pycache__/*
+test*
+

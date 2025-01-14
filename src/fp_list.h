@@ -26,9 +26,10 @@ class MyList
 {
 public:
     std::list<std::unique_ptr<CFunctPart>> Listes;
-    MyList() 
+    MyList(std::unique_ptr<CFunctPart> cFunc) 
     {
         Listes.clear();
+        Listes.push_back(std::move(cFunc));
     }
     ~MyList() = default;
 
