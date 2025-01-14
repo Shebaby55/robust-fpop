@@ -1,0 +1,12 @@
+*.pdf
+*.out
+*.png
+
+/output 
+/.vscode/* 
+/build/* 
+src1/
+
+*/__pycache__/*
+test*
+

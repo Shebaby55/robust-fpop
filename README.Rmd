@@ -1,7 +1,9 @@
 ---
-title: Robust Fpop : A package to detect changepoints in the Presence of Outliers using the Biweight, L1 and Huber loss.
-output: pdf_document
-name: Guillem Rigaill
+title: "Robust Fpop : A package to detect changepoints in the Presence of Outliers using the Biweight, L1 and Huber loss."
+output: 
+  pdf_document:
+    latex_engine: xelatex
+name: "Guillem Rigaill"
 ---
 
 ### Summary

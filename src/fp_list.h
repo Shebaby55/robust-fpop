@@ -1,4 +1,4 @@
-/* July 2017 Guillem Rigaill <guillem.rigaill@inra.fr> 
+/* July 2017 Guillem Rigaill <guillem.rigaill@inra.fr>
 
    This file is part of the R package Robseg
 
@@ -6,30 +6,41 @@
    it under the terms of the GNU Lesser General Public License (LGPL) as published by
    the Free Software Foundation; either version 2.1 of the License, or
    (at your option) any later version.
-   
+
    robseg is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU Lesser General Public License for more details.
-   
+
    You should have received a copy of the GNU Lesser General Public License
    along with opfp; if not, write to the Free Software
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+#ifndef LISTEH
+#define LISTEH
+#include <list>
+#include <memory>
+#include "fp_CFunctPart.h"
 
-#include "fp_Rob_fpop.h"
-#include<R_ext/Arith.h>
+class MyList
+{
+public:
+    std::list<std::unique_ptr<CFunctPart>> Listes;
+    MyList(std::unique_ptr<CFunctPart> cFunc) 
+    {
+        Listes.clear();
+        Listes.push_back(std::move(cFunc));
+    }
+    ~MyList() = default;
 
-// this function is visible by R
-extern "C" {
-void rob_fpop_RtoC (double *profil, int *nbi, double *lambda_, 
-		double *lthreshold_, double *rthreshold_,
-		double *lslope_, double *rslope_,
-		double *mini, double *maxi, int *origine, double *cout_n, double *mean_n)
-  {
-    rob_fpop(profil, nbi, lambda_, 
-		lthreshold_, rthreshold_, lslope_, rslope_, 
-		mini, maxi, origine, cout_n, mean_n);
-  }
+    void getMin(double *min_, int *origine_, double *mean_);
+    
+    void add(double X_, double lthrs_, double rthrs_, double lslope, double rslope);
+    
+    void compare(double cost_, int origine_);
 
-}
+    void mergeSimilarElements();
+    
+};
+
+#endif  // INLINED
