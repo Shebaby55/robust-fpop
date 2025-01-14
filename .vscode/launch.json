@@ -1,0 +1,48 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "(gdb) Launch python Attach cpp",
+            "type": "pythoncpp", // 该拓展特定的会话type
+            "request": "launch",
+            "pythonLaunchName": "python launch", // 开启python launch
+            "cppAttachName": "Attach", // 开启cpp attach
+      },
+        {
+            "name": "python launch",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/home/sheshaoya/stl/robust-fpop/py/example.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Attach",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "/home/sheshaoya/.conda/envs/py39/bin/python",
+            "processId": "${command:pickProcess}",
+            "MIMode": "gdb",
+            "preLaunchTask": "make clean && make",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "miDebuggerPath": "/usr/local/cuda-11.8/bin/cuda-gdb",
+            "logging": {
+                "engineLogging": false,
+                "trace": false,
+                "traceResponse": false,
+                "programOutput": false,
+                "exceptions": false,
+                "moduleLoad": false
+            },
+            "additionalSOLibSearchPath": "${workspaceFolder}/build/liball.so", //动态库所在位置
+
+            
+        }
+    ],
+}

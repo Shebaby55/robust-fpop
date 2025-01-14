@@ -3,7 +3,6 @@
 *.png
 test*
 output
-.vscode
 build
 */__pycache__
 src1
